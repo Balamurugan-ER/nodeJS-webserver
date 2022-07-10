@@ -5,6 +5,11 @@ const app = express();
 const publicPath = path.join(__dirname, '../public');
 
 app.use(express.static(publicPath));
+app.set('view engine', 'hbs');
+
+app.get('', (req, res) => {
+  res.render('index');
+});
 
 app.get('/weather', (req, res) => {
   res.send({
