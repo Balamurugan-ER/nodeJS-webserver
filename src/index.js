@@ -10,7 +10,7 @@ app.use(express.static(publicDirectoryPath));
 app.get('', (req, res) => {
   res.render('index', {
     title: 'Weather',
-    name: 'Andrew Mead',
+    name: 'Balamurugan',
   });
 });
 
