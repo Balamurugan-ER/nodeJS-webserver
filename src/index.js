@@ -38,11 +38,30 @@ app.get('/help', (req, res) => {
   });
 });
 
+app.get('/products', (req, res) => {
+  if (!req.query.search) {
+    res.send({
+      error: 'You must Provide Search term',
+    });
+  } else {
+    res.send({
+      products: [],
+    });
+  }
+});
+
 app.get('/weather', (req, res) => {
-  res.send({
-    forecast: 'It is snowing',
-    location: 'Philadelphia',
-  });
+  if (!req.query.address) {
+    res.send({
+      error: 'You need to provide address to fetch weather',
+    });
+  } else {
+    res.send({
+      forecast: 'It is snowing',
+      location: 'Philadelphia',
+      address: req.query.address,
+    });
+  }
 });
 
 app.get('/help/*', (req, res) => {
